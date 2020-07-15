@@ -1,54 +1,63 @@
-// const div = document.getElementById('wrapper')
-const bubbleSort=(arr) => {
-	let length=arr.length;
-	for (let i=length; i>=2; i--) {
-		for (let j=0; j<=i - 1; j++) {
-			if (arr[j]>arr[j + 1]) {
-				[arr[j], arr[j + 1]]=[arr[j + 1], arr[j]];
-			}
-		}
-	}
-	return arr;
+let arr=[1, 1, 5,
+	'true', 'true', true, true,
+	15, 15,
+	false, false,
+	undefined, undefined,
+	null, null,
+	NaN, 'NaN',
+	0, 0,
+	'a', 'a',
+	{}, {}];
+//1.ES6 Set()
+const unique1=(arr) => {
+	return [...new Set(arr)];
 };
-let arr=[1, 5, 13, 8, 6, 9, 31, 85, 0, 11];
-console.log(bubbleSort(arr));
-const countSort=(arr) => {
-	let hash={};
-	let max=0;
-	let result=[];
+// console.log(unique1(arr));
+///
+//2.Map去重
+const unique2=(arr) => {
+	let map=new Map();
+	let array=[];
 	for (let i=0; i<arr.length; i++) {
-		if (!(arr[i] in hash)) {
-			hash[arr[i]]=1;
+		if (map.has(arr[i])) {
+			map.set(arr[i], true);
 		}else {
-			hash[arr[i]]+=1;
-		}
-		if (arr[i]>max) {max=arr[i];}
-	}
-	for (let j=0; j<=max; j++) {
-		if (j in hash) {
-			for (let i=0; i<hash[j]; i++) {
-				result.push(j);
-			}
+			map.set(arr[i], false);
+			array.push(arr[i]);
 		}
 	}
-	return result;
+	return array;
 };
-let arr3=[1, 3, 9, 2, 4, 6, 9, 3, 7, 6, 3,];
-console.log(countSort(arr3));
-const quickSort = (arr)=>{
-	if (arr.length<=1){return arr}
-	const left=[]
-	const right=[]
-	let pivotIndex  = Math.floor(arr.length/2)
-	let pivot = arr.splice(pivotIndex,1)[0]
-	for (let i=0;i<arr.length;i++){
-		if (arr[i]<pivot){
-			left.push(arr[i])
-		}else {
-			right.push(arr[i])
+// console.log(unique2(arr));
+//3.forEach + includes
+const unique3=(arr) => {
+	let array=[];
+	arr.forEach(val => {
+		if (!array.includes(val)) {
+			array.push(val);
 		}
+	});
+	return array;
+};
+// console.log(unique3(arr));
+//4.reduce + includes
+const unique4=(arr) => {
+	return arr.reduce((pre, current) => {
+		if (!pre.includes(current)) {
+			pre.push(current);
+		}
+		return pre
+	}, []);
+};
+// console.log(unique4(arr));
+// 5.hashTable 只适合正整数数组
+let hashTable = {}
+const unique5 = (arr)=>{
+	for(let i=0;i<arr.length;i++){
+		if (arr[i]in hashTable){}
+		else {hashTable[arr[i]]=true}
 	}
-	return quickSort(left).concat([pivot],quickSort(right))
+	return Object.keys(hashTable);
 }
-let arr4=[5,6,3,1,2,8,4,1,9,3,7]
-console.log(quickSort(arr4));
+let numbers = [2,4,6,2,3,4,5,4]
+console.log(unique5(numbers).map(Number));
