@@ -5,56 +5,39 @@
 	}
 
 .wrapper{
-	height:100vh;
 	border:10px solid green;
+	height:100vh;
 	display:flex;
 	flex-direction:column;
 	}
 
 .nav{
-	display:flex;
-	}
-
-.nav > div{
-	justify-content:center;
-	flex-direction:row;
-	align-content:center;
-	width:30%;
-	height:50px;
-	margin:10px;
-	border:3px solid green;
+	border:1px solid green;
 	}
 
 header{
+	border:1px solid red;
 	height:100px;
-	border:3px solid red;
 	}
 
 .content{
-	border:5px solid black;
+	border:10px solid black;
+	width:100%;
 	display:flex;
-	padding:5px;
-	height:100%;
 	}
 
-.content > aside{
-	width:100px;
-	margin-right:5px;	border:3px solid red;
-	padding:5px;
-	
-	}
-
-.content > aside > div{
-	border:3px solid red;
-	margin-bottom:10px;
-	height:50px;
+aside{
+	width:150px;
+	border:10px solid red;
 	}
 
 section{
+	border:10px solid blue;
 	width:100%;
+	}
+footer	{
+	border:10px solid blue;
 	height:100%;
-	
-	border:3px solid gray;
 	}
 
 
