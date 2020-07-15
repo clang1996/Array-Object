@@ -1,45 +1,13 @@
-*{
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
+html {
+	height: 100%;
 	}
-
-.wrapper{
-	border:10px solid green;
-	height:100vh;
-	display:flex;
-	flex-direction:column;
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	}
-
-.nav{
-	border:1px solid green;
+main {
+	flex: 1;
 	}
-
-header{
-	border:1px solid red;
-	height:100px;
-	}
-
-.content{
-	border:10px solid black;
-	width:100%;
-	display:flex;
-	}
-
-aside{
-	width:150px;
-	border:10px solid red;
-	}
-
-section{
-	border:10px solid blue;
-	width:100%;
-	}
-footer	{
-	border:10px solid blue;
-	height:100%;
-	}
-
-
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
