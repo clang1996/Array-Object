@@ -1,13 +1,24 @@
-// 字符串,怎么判断str中有'876'?
-// 怎么判断str头部有'XM'?
-// 怎么判断str倒数第二个字符是'Y'?
-// 怎么判断str中第三个字符是'S'?
-let str='XMS00087672542-YD';
-console.log(str.includes('876'));
-console.log(str.startsWith('XM'));
-console.log(str.endsWith('Y',str.length-1));
-console.log(str.startsWith('S',2));
-//模板字符串
-const a = '我是变量';
-let str2 = `${a},我是常量`;
-console.log(str2)//我是变量，我是常量
+//1.isNaN判断是否为NaN，返回布尔值
+Number.isNaN(NaN);//true
+Number.isNaN(true);//false
+Number.isNaN('a');//false
+Number.isNaN(58/NaN);//true
+Number.isNaN('a'/NaN);//true
+Number.isNaN(NaN/0);//true
+//2.判断是否为整数，返回布尔值
+Number.isInteger('255')//false
+Number.isInteger(3)//true
+Number.isInteger(3.0)//true
+//3.parseInt()，
+// 解析一个字符串直到达小数点或者数字的末端为止，
+// 并返回一个整数，
+// 如果字符串的第一个字符不能被转换为数字，那么会返回 NaN。
+console.log(parseInt('0225D2.25'));//225
+console.log(parseInt('0225.25'));//225
+console.log(parseInt('D225.25'));//NaN
+//4.parseFloat()
+// 解析一个字符串直到达数字的末端或第二个小数点为止，并返回一个浮点数，
+// 如果字符串的第一个字符不能被转换为数字，那么会返回 NaN。
+console.log(parseFloat('0225.25D25'));//225.25
+console.log(parseFloat('0225.2.25'));//225.2
+console.log(parseFloat('D225.25'));//NaN
